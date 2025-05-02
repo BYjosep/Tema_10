@@ -1,6 +1,6 @@
 package com.BYjosep04.ejercicio1;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         Punto punto1 = new Punto(1.5, 3.2);
         Punto punto2 = new Punto();

@@ -1,8 +1,8 @@
 package com.BYjosep04.ejercicio1;
 
 public class Punto {
-    private final double x;
-    private final double y;
+    private double x;
+    private double y;
 
     public Punto(double x, double y) {
         this.x = x;
@@ -18,6 +18,14 @@ public class Punto {
     }
     public double getY() {
         return y;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     public double distancia(Punto punto) {
