@@ -29,11 +29,19 @@ public class Electrodomestico {
         switch (this.consumoEnergetico){
             case A -> precioFinal += 100;
             case B -> precioFinal += 80;
-            case C -> ;
-            case D -> ;
-            case E -> ;
-            case F -> ;
+            case C -> precioFinal += 60;
+            case D -> precioFinal += 50;
+            case E -> precioFinal += 30;
+            case F -> precioFinal += 10;
         }
+
+        if (peso>= 80){
+            precioFinal += 100;
+        } else if (peso>=50 && peso<= 79) {
+            precioFinal += 80;
+        }
+
+        return precioFinal;
     }
 
 
