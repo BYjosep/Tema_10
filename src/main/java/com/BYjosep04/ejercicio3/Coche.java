@@ -9,7 +9,7 @@ public abstract class Coche {
     private int marchaActual;
     private int[] marchasVecidadMaxima;
 
-    public Coche (String matricula, int velocidadActual, int[] marchasVecidadMaxima) {
+    public Coche (String matricula, int[] marchasVecidadMaxima) {
         this.matricula = matricula;
         this.velocidadActual = 0;
         this.marchaActual = 0;
@@ -43,10 +43,11 @@ public abstract class Coche {
 
     }
 
-    protected void cambiarMarcha(int marcha) {
+    protected void cambiarMarcha(int marcha) throws IllegalArgumentException {
         if (marcha < 0){
             throw new IllegalArgumentException("No se pueden usar marchas negativas.");
         }
+        marchaActual = marcha;
     }
 
 
@@ -61,22 +62,26 @@ public abstract class Coche {
     public int getMarchaActual() {
         return marchaActual;
     }
-    public int[] getMarchasVecidadMaxima() {
+    public int getVelocidadMaximaDeUnaMarcha(int marcha) {
 
-        return marchasVecidadMaxima;
+        return marchasVecidadMaxima[marcha];
     }
 
+    public int saberNumeroDeMarchas(){
+        return marchasVecidadMaxima.length;
+    }
 
-    public void setVelocidadActual(int velocidadActual) {
+    protected void setVelocidadActual(int velocidadActual) {
         this.velocidadActual = velocidadActual;
     }
 
-    public void setMarchaActual(int marchaActual) {
+    protected void setMarchaActual(int marchaActual) {
         this.marchaActual = marchaActual;
     }
-    public void modificarVelocidadesYMarchas(int[] marchasVecidadMaxima) {
+    protected void modificarVelocidadesYMarchas(int[] marchasVecidadMaxima) {
         this.marchasVecidadMaxima = marchasVecidadMaxima;
     }
+
 
 
     @Override
