@@ -3,7 +3,7 @@ package com.BYjosep04.ejercicio4;
 
 import java.util.Objects;
 
-public class Electrodomestico {
+public abstract class Electrodomestico {
     private final double precioBase;
     private final Colores color;
     private final Consumo consumoEnergetico;
