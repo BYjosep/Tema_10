@@ -2,7 +2,7 @@ package com.BYjosep04.ejercicio6;
 
 import java.util.Objects;
 
-public class Multimedia {
+public abstract class Multimedia {
     private String titulo;
     private String autor;
     private TipoMultimedia tipo;
