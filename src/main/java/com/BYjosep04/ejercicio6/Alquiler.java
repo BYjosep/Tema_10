@@ -7,7 +7,7 @@ public class Alquiler implements Comparable<Alquiler> {
     private static final int PRECIO_BASE = 4;
     private final Multimedia multimedia;
     private final LocalDate fechaDePrestamo;
-    private final int precio;
+    private int precio;
     private LocalDate fechaDeDevolucion;
     private final Socio socio;
 
@@ -33,6 +33,8 @@ public class Alquiler implements Comparable<Alquiler> {
         if (this.fechaDeDevolucion != null) {
             throw new IllegalStateException("Alquiler ya está devuelto");
         }
+        this.calcularPrecioTotal();
+        precio = 0;
         this.fechaDeDevolucion = fechaDeDevolucion;
         return true;
     }
