@@ -180,7 +180,7 @@ public class Tienda {
         }
 
         for (Socio socio : socios) {
-            sb.append(socios.toString()).append("\n");
+            sb.append(socio).append("\n");
         }
         return sb.toString();
     }
