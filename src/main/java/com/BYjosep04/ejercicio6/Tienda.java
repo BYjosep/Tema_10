@@ -1,9 +1,7 @@
 package com.BYjosep04.ejercicio6;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Tienda {
     private final List<Alquiler> alquileres;
@@ -127,6 +125,62 @@ public class Tienda {
         Collections.sort(videoJuegoS);
         for (VideoJuegos videoJuego : videoJuegoS) {
             sb.append(videoJuego.toStringForBucle()).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public String toStringHistorialAlquilersDeUnSocio(Socio socio) {
+        ArrayList<Alquiler> alquilerSocio = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+
+        for (Alquiler alquiler : alquileres) {
+            if (alquiler.getSocio().equals(socio)) {
+                alquilerSocio.add(alquiler);
+            }
+        }
+
+        Collections.sort(alquilerSocio);
+        sb.append("Alquileres del socio: ").append(socio).append("\n");
+        for (Alquiler alquiler : alquilerSocio) {
+            sb.append(alquiler.toStringForBucle(false)).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public String toStringAlquilersDeUnSocio(Socio socio) {
+        ArrayList<Alquiler> alquilerSocio = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+
+        for (Alquiler alquiler : alquileres) {
+            if (alquiler.getSocio().equals(socio) && !Alquiler.isDevuelto(alquiler)) {
+                alquilerSocio.add(alquiler);
+            }
+        }
+
+        Collections.sort(alquilerSocio);
+        sb.append("Alquileres pendientes del socio: ").append(socio).append("\n");
+        for (Alquiler alquiler : alquilerSocio) {
+            sb.append(alquiler.toStringForBucle(false)).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public String toStringSocioConRecargo() {
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Alquiler> alquilersConRecargo = new ArrayList<>();
+        for (Alquiler alquiler : alquileres) {
+            if (!Alquiler.isDevuelto(alquiler)&& alquiler.calcularPrecioTotal() != alquiler.getPrecio()) {
+                alquilersConRecargo.add(alquiler);
+            }
+        }
+
+        TreeSet<Socio> socios = new TreeSet<>();
+        for (Alquiler alquiler : alquilersConRecargo) {
+            socios.add(alquiler.getSocio());
+        }
+
+        for (Socio socio : socios) {
+            sb.append(socios.toString()).append("\n");
         }
         return sb.toString();
     }

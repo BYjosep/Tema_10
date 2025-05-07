@@ -65,6 +65,10 @@ public class Alquiler implements Comparable<Alquiler> {
         return socio;
     }
 
+    public int getPrecio() {
+        return precio;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -82,4 +86,26 @@ public class Alquiler implements Comparable<Alquiler> {
         return this.fechaDePrestamo.compareTo(o.fechaDePrestamo);
     }
 
+    @Override
+    public String toString() {
+        return "Alquiler{" +
+                "multimedia=" + multimedia +
+                ", fechaDePrestamo=" + fechaDePrestamo +
+                ", precio=" + precio +
+                ", fechaDeDevolucion=" + fechaDeDevolucion +
+                ", socio=" + socio +
+                '}';
+    }
+
+    public String toStringForBucle(boolean mostrarSocio){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Multimedia: ").append(multimedia).append("\n");
+        sb.append("Fecha de prestamo: ").append(fechaDePrestamo).append("\n");
+        sb.append("Precio: ").append(precio).append("\n");
+        sb.append("Fecha de devolucion: ").append(fechaDeDevolucion).append("\n");
+        if (mostrarSocio) {
+            sb.append("Socio: ").append(socio).append("\n");
+        }
+        return sb.toString();
+    }
 }
