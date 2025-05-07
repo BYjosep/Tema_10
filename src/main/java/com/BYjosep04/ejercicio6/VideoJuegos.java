@@ -12,6 +12,11 @@ public class VideoJuegos extends Multimedia implements Comparable<VideoJuegos> {
         this.plataformas.addAll(Arrays.asList(plataformas));
     }
 
+    public VideoJuegos(String titulo, String autor, int year, TipoMultimedia tipo,ArrayList<String> plataformas) {
+        super(titulo, autor, year, tipo);
+        this.plataformas = plataformas;
+    }
+
     public String[] getPlataformas() {
         return (String[]) this.plataformas.toArray();
     }

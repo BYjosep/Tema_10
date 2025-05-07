@@ -4,7 +4,9 @@ import com.github.javafaker.Faker;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Random;
+
 
 public class Main {
     private static Faker faker = new Faker();
@@ -32,10 +34,14 @@ public class Main {
 
     private static VideoJuegos generarVideoJuegos() {
         VideoJuegos videoJuego;
-        TipoMultimedia multimedia = TipoMultimedia.valueOf(rand.nextInt(0,TipoMultimedia.values().length()));
+        ArrayList<String> plataformas = new ArrayList<>();
+        for (int i = 0; i < rand.nextInt(1,101); i++) {
+            plataformas.add(faker.company().name()+" "+faker.team().name());
+        }
         videoJuego = new VideoJuegos(faker.name().title(),
                 faker.name().fullName(),
-                faker.number().numberBetween(1400,LocalDate.now().getYear()),multimedia);
-    }
+                faker.number().numberBetween(1400,LocalDate.now().getYear()),TipoMultimedia.valueOf(String.valueOf(rand.nextInt(0, TipoMultimedia.values().length))),plataformas);
+
+    return videoJuego;}
 
 }
