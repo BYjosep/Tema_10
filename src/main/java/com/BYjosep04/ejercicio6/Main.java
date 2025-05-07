@@ -9,8 +9,8 @@ import java.util.Random;
 
 
 public class Main {
-    private static Faker faker = new Faker();
-    private static Random rand = new Random();
+    private final static Faker faker = new Faker();
+    private final static Random rand = new Random();
     public static void main(String[] args) {
         Tienda tienda = new Tienda();
         for (int i = 0; i < rand.nextInt(1,101); i++) {
