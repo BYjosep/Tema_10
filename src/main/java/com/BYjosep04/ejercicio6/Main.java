@@ -40,8 +40,21 @@ public class Main {
         }
         videoJuego = new VideoJuegos(faker.name().title(),
                 faker.name().fullName(),
-                faker.number().numberBetween(1400,LocalDate.now().getYear()),TipoMultimedia.valueOf(String.valueOf(rand.nextInt(0, TipoMultimedia.values().length))),plataformas);
+                faker.number().numberBetween(1400,LocalDate.now().getYear()),
+                TipoMultimedia.valueOf(String.valueOf(rand.nextInt(0, TipoMultimedia.values().length))),plataformas);
 
-    return videoJuego;}
+    return videoJuego;
+    }
+
+    private static Pelicula generarPelicula() {
+        Pelicula pelicula;
+        pelicula=new Pelicula(faker.name().title(),faker.name().fullName(),
+                faker.number().numberBetween(1400,LocalDate.now().getYear()),
+                TipoMultimedia.valueOf(String.valueOf(rand.nextInt(0, TipoMultimedia.values().length))),
+                faker.number().numberBetween(1, 60000),
+                faker.name().fullName(),faker.name().fullName()
+                );
+    return pelicula;
+    }
 
 }
