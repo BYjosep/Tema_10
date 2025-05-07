@@ -41,8 +41,8 @@ public class Alquiler implements Comparable<Alquiler> {
         int precio = PRECIO_BASE;
         if (multimedia.getClass() == Pelicula.class && multimedia.getYear() <= 2012) {
             precio -= 1;
-        } else if (multimedia.getClass() == VideoJuegos.class && multimedia.getYear() > 2010) {
-
+        } else if (multimedia.getClass() == VideoJuegos.class && multimedia.getYear() <= 2010) {
+            precio -= 1;
         }
         return precio;
     }
