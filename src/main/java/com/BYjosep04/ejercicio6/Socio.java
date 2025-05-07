@@ -8,8 +8,8 @@ import java.util.Objects;
 public class Socio {
     private final String nif;
     private final LocalDate fechaNacimiento;
-    private final String nombre;
-    private final String Poblacion;
+    private String nombre;
+    private String Poblacion;
 
 
     public Socio(String nif, String nombre, LocalDate fechaNacimiento, String Poblacion) {

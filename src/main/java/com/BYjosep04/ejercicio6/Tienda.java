@@ -165,7 +165,7 @@ public class Tienda {
         return sb.toString();
     }
 
-    public String toStringSocioConRecargo() {
+    public String toStringSociosConRecargoPendiente() {
         StringBuilder sb = new StringBuilder();
         ArrayList<Alquiler> alquilersConRecargo = new ArrayList<>();
         for (Alquiler alquiler : alquileres) {
