@@ -2,7 +2,7 @@ package com.BYjosep04.ejercicio6;
 
 import java.util.Objects;
 
-public abstract class Multimedia {
+public abstract class Multimedia  {
     private String titulo;
     private String autor;
     private TipoMultimedia tipo;
@@ -74,6 +74,15 @@ public abstract class Multimedia {
     @Override
     public String toString() {
         return "Multimedia{\n" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", tipo=" + tipo +
+                ", year=" + year +
+                '}';
+    }
+
+    public String toStringForBucle() {
+        return
                 "titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
                 ", tipo=" + tipo +

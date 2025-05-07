@@ -1,9 +1,10 @@
 package com.BYjosep04.ejercicio6;
 
-import javax.management.InvalidApplicationException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Objects;
 
-public class Alquiler {
+public class Alquiler implements Comparable<Alquiler> {
     private static final int PRECIO_BASE = 4;
     private final Multimedia multimedia;
     private final LocalDate fechaDePrestamo;
@@ -68,4 +69,22 @@ public class Alquiler {
     public Socio getSocio() {
         return socio;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Alquiler alquiler = (Alquiler) o;
+        return precio == alquiler.precio && Objects.equals(multimedia, alquiler.multimedia) && Objects.equals(fechaDePrestamo, alquiler.fechaDePrestamo) && Objects.equals(fechaDeDevolucion, alquiler.fechaDeDevolucion) && Objects.equals(socio, alquiler.socio);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(multimedia, fechaDePrestamo, fechaDeDevolucion, precio, socio);
+    }
+
+    @Override
+    public int compareTo(Alquiler o) {
+        return this.fechaDePrestamo.compareTo(o.fechaDePrestamo);
+    }
+
 }

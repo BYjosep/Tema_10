@@ -3,6 +3,7 @@ package com.BYjosep04.ejercicio6;
 import lib.LibDate;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Socio {
     private final String nif;
@@ -26,5 +27,27 @@ public class Socio {
         }
         return fechaNacimiento;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Socio socio = (Socio) o;
+        return Objects.equals(nif, socio.nif);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(nif);
+    }
+
+    @Override
+    public String toString() {
+        return "Socio{" +
+                "nif='" + nif + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", Poblacion='" + Poblacion + '\'' +
+                '}';
     }
 }

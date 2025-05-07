@@ -2,6 +2,7 @@ package com.BYjosep04.ejercicio6;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Tienda {
@@ -33,9 +34,7 @@ public class Tienda {
             if (alquiler.getSocio().equals(socio) && !Alquiler.isDevuelto(alquiler) ) {
                 throw new IllegalArgumentException("No se ha devuelto un alquiler");
             }
-
         }
-
         this.alquileres.add(new Alquiler(multimedia,fechaPrestamo,socio));
     }
     public void devolverMultimedia(Alquiler alquiler, LocalDate fechaDeDevolucion) {
@@ -79,5 +78,57 @@ public class Tienda {
             }
         }
         return sb.toString();
+    }
+
+
+
+
+    /*
+        ToStrings
+     */
+
+
+    public String multimediaToString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Multimedia{\n");
+        for (Multimedia multimedia : this.multimedia) {
+            sb.append(multimedia.toString()).append("\n");
+        }
+        sb.append("}\n");
+        return sb.toString();
+    }
+
+    public String toStringPeliculasPorTitulo() {
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+        for (Multimedia multimedia : this.multimedia) {
+            if (multimedia.getClass() == Pelicula.class) {
+                peliculas.add((Pelicula) multimedia);
+            }
+        }
+        Collections.sort(peliculas);
+
+        sb.append("Peliculas:\n");
+        for (Pelicula pelicula : peliculas) {
+            sb.append(pelicula.toStringForBucle()).append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    public String toStringVideoJuegos() {
+        StringBuilder sb = new StringBuilder();
+        ArrayList<VideoJuegos> videoJuegoS= new ArrayList<VideoJuegos>();
+        sb.append("Video Juegos:\n");
+        for (Multimedia multimedia : this.multimedia) {
+            if (multimedia.getClass() == VideoJuegos.class) {
+                videoJuegoS.add((VideoJuegos) multimedia);
+            }
+        }
+        Collections.sort(videoJuegoS);
+        for (VideoJuegos videoJuego : videoJuegoS) {
+            sb.append(videoJuego.toStringForBucle()).append("\n");
+        }
+
     }
 }

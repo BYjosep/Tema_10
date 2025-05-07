@@ -1,6 +1,8 @@
 package com.BYjosep04.ejercicio6;
 
-public class Pelicula extends Multimedia {
+import java.util.Comparator;
+
+public class Pelicula extends Multimedia implements Comparable<Pelicula> {
     private int duracion;
     private  String actorPrincipal;
     private  String actrizPrincipal;
@@ -58,5 +60,24 @@ public class Pelicula extends Multimedia {
         sb.append("\tActrizPrincipal: ").append(getActrizPrincipal()).append(",\n");
         sb.append("\n}");
         return sb.toString();
+    }
+
+    @Override
+    public String toStringForBucle() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\tTitulo: ").append(getTitulo()).append(",\n");
+        sb.append("\tAutor: ").append(getAutor()).append(",\n");
+        sb.append("\tYear: ").append(getYear()).append(",\n");
+        sb.append("\tTipo: ").append(getTipo()).append(",\n");
+        sb.append("\tDuracion: ").append(getDuracion()).append(",\n");
+        sb.append("\tActorPrincipal: ").append(getActorPrincipal()).append(",\n");
+        sb.append("\tActrizPrincipal: ").append(getActrizPrincipal()).append(",\n");
+        return sb.toString();
+    }
+
+
+    @Override
+    public int compareTo(Pelicula pelicula) {
+        return this.getTitulo().compareTo(pelicula.getTitulo());
     }
 }
