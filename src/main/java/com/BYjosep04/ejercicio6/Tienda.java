@@ -19,6 +19,7 @@ public class Tienda {
     public void agregarPelicula(Pelicula pelicula) {
         this.multimedia.add(pelicula);
     }
+
     public void agregarVideoJuego(VideoJuegos videoJuego) {
         this.multimedia.add(videoJuego);
     }
@@ -28,15 +29,15 @@ public class Tienda {
     }
 
 
-
-    public void agregarAlquiler(Multimedia multimedia, LocalDate fechaPrestamo,Socio socio) {
+    public void agregarAlquiler(Multimedia multimedia, LocalDate fechaPrestamo, Socio socio) {
         for (Alquiler alquiler : alquileres) {
-            if (alquiler.getSocio().equals(socio) && !Alquiler.isDevuelto(alquiler) ) {
+            if (alquiler.getSocio().equals(socio) && !Alquiler.isDevuelto(alquiler)) {
                 throw new IllegalArgumentException("No se ha devuelto un alquiler");
             }
         }
-        this.alquileres.add(new Alquiler(multimedia,fechaPrestamo,socio));
+        this.alquileres.add(new Alquiler(multimedia, fechaPrestamo, socio));
     }
+
     public void devolverMultimedia(Alquiler alquiler, LocalDate fechaDeDevolucion) {
 
         for (int i = 0; i < alquileres.size(); i++) {
@@ -49,7 +50,6 @@ public class Tienda {
     }
 
     /**
-     *
      * @return devuelve un String con los datos más importantes de una pelicula
      */
     public String getPeliculas() {
@@ -58,14 +58,13 @@ public class Tienda {
         for (Multimedia multimedia : this.multimedia) {
             if (multimedia.getClass() == Pelicula.class) {
                 sb.append(multimedia.getTitulo()).append(", ").append(multimedia.getAutor()).append(", ").append(multimedia.getYear());
-            sb.append("\n");
+                sb.append("\n");
             }
         }
         return sb.toString();
     }
 
     /**
-     *
      * @return devuelve un String con los datos más importantes de un videojuego
      */
     public String getVideoJuegos() {
@@ -118,7 +117,7 @@ public class Tienda {
 
     public String toStringVideoJuegos() {
         StringBuilder sb = new StringBuilder();
-        ArrayList<VideoJuegos> videoJuegoS= new ArrayList<VideoJuegos>();
+        ArrayList<VideoJuegos> videoJuegoS = new ArrayList<VideoJuegos>();
         sb.append("Video Juegos:\n");
         for (Multimedia multimedia : this.multimedia) {
             if (multimedia.getClass() == VideoJuegos.class) {
@@ -129,6 +128,6 @@ public class Tienda {
         for (VideoJuegos videoJuego : videoJuegoS) {
             sb.append(videoJuego.toStringForBucle()).append("\n");
         }
-
+        return sb.toString();
     }
 }

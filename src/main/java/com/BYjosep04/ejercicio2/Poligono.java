@@ -5,12 +5,11 @@ import com.BYjosep04.ejercicio1.Punto;
 import java.util.ArrayList;
 
 public class Poligono {
-    private ArrayList<Punto> puntos;
+    private final ArrayList<Punto> puntos;
 
     public Poligono(ArrayList<Punto> puntos) {
         this.puntos = puntos;
     }
-
 
 
     public void translada(double x, double y) {
@@ -20,15 +19,15 @@ public class Poligono {
         }
     }
 
-    public int numVertices(){
+    public int numVertices() {
         return puntos.size();
     }
 
-    public double perimetro(){
+    public double perimetro() {
         double perimetro;
-        perimetro = puntos.get(0).distancia(puntos.get(puntos.size()-1));
-        for (int i = 0; i < puntos.size()-1; i++) {
-            perimetro += puntos.get(i).distancia(puntos.get(i+1));
+        perimetro = puntos.get(0).distancia(puntos.get(puntos.size() - 1));
+        for (int i = 0; i < puntos.size() - 1; i++) {
+            perimetro += puntos.get(i).distancia(puntos.get(i + 1));
         }
         return perimetro;
     }

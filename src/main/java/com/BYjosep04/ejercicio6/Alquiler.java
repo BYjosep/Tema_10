@@ -1,18 +1,17 @@
 package com.BYjosep04.ejercicio6;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Alquiler implements Comparable<Alquiler> {
     private static final int PRECIO_BASE = 4;
     private final Multimedia multimedia;
     private final LocalDate fechaDePrestamo;
-    private LocalDate fechaDeDevolucion;
     private final int precio;
-    private Socio socio;
+    private LocalDate fechaDeDevolucion;
+    private final Socio socio;
 
-    public Alquiler(Multimedia multimedia, LocalDate fechaDePrestamo, Socio socio ) {
+    public Alquiler(Multimedia multimedia, LocalDate fechaDePrestamo, Socio socio) {
         this.multimedia = multimedia;
         this.fechaDePrestamo = fechaDePrestamo;
         this.precio = calcularPrecio(multimedia);
@@ -20,13 +19,15 @@ public class Alquiler implements Comparable<Alquiler> {
         this.fechaDeDevolucion = null;
     }
 
+    public static boolean isDevuelto(Alquiler alquiler) {
+        return alquiler.fechaDeDevolucion != null;
+    }
 
     /**
-     *
      * @param fechaDeDevolucion fecha en la que se devuelve
      * @return en caso de poderse devolver devuelve true
      * @throws IllegalStateException En caso de ya haber sido devuelto provoca una exepcion,
-     * ya que no se puede devolver algo ya devuelto
+     *                               ya que no se puede devolver algo ya devuelto
      */
     public boolean devolver(LocalDate fechaDeDevolucion) throws IllegalStateException {
         if (this.fechaDeDevolucion != null) {
@@ -41,7 +42,7 @@ public class Alquiler implements Comparable<Alquiler> {
         if (multimedia.getClass() == Pelicula.class && multimedia.getYear() <= 2012) {
             precio -= 1;
         } else if (multimedia.getClass() == VideoJuegos.class && multimedia.getYear() > 2010) {
-            
+
         }
         return precio;
     }
@@ -52,19 +53,13 @@ public class Alquiler implements Comparable<Alquiler> {
         if (diasDePrestamo <= 0) {
             return precio;
 
-        }else {
-            precio += diasDePrestamo*2;
+        } else {
+            precio += diasDePrestamo * 2;
             return precio;
         }
 
 
     }
-
-
-    public static boolean isDevuelto(Alquiler alquiler) {
-        return alquiler.fechaDeDevolucion != null;
-    }
-
 
     public Socio getSocio() {
         return socio;

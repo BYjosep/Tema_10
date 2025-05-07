@@ -2,18 +2,17 @@ package com.BYjosep04.ejercicio6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 
 public class VideoJuegos extends Multimedia implements Comparable<VideoJuegos> {
-    private ArrayList<String> plataformas;
+    private final ArrayList<String> plataformas;
 
-    public VideoJuegos(String titulo, String autor, int year, TipoMultimedia tipo, String... plataformas ) {
+    public VideoJuegos(String titulo, String autor, int year, TipoMultimedia tipo, String... plataformas) {
         super(titulo, autor, year, tipo);
-        this.plataformas= new ArrayList<>();
+        this.plataformas = new ArrayList<>();
         this.plataformas.addAll(Arrays.asList(plataformas));
     }
 
-    public String[] getPlataformas(){
+    public String[] getPlataformas() {
         return (String[]) this.plataformas.toArray();
     }
 
@@ -26,7 +25,7 @@ public class VideoJuegos extends Multimedia implements Comparable<VideoJuegos> {
         sb.append("\tYear: ").append(getYear()).append("\n");
         sb.append("\tTipo: ").append(getTipo()).append("\n");
         sb.append("\tPlataformas:\n");
-        for(String plataforma: getPlataformas()){
+        for (String plataforma : getPlataformas()) {
             sb.append("\t\t").append(plataforma).append("\n");
         }
         sb.append("}\n");
@@ -41,7 +40,7 @@ public class VideoJuegos extends Multimedia implements Comparable<VideoJuegos> {
         sb.append("\tYear: ").append(getYear()).append("\n");
         sb.append("\tTipo: ").append(getTipo()).append("\n");
         sb.append("\tPlataformas:\n");
-        for(String plataforma: getPlataformas()){
+        for (String plataforma : getPlataformas()) {
             sb.append("\t\t").append(plataforma).append("\n");
         }
 

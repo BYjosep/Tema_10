@@ -20,14 +20,15 @@ public abstract class Electrodomestico {
     public Electrodomestico() {
         this(100.0, " ", 'f', 5);
     }
+
     public Electrodomestico(double precioBase, double peso) {
-        this(precioBase," ", 'f', peso);
+        this(precioBase, " ", 'f', peso);
     }
 
 
     public double precioFinal() {
-        double precioFinal= precioBase;
-        switch (this.consumoEnergetico){
+        double precioFinal = precioBase;
+        switch (this.consumoEnergetico) {
             case A -> precioFinal += 100;
             case B -> precioFinal += 80;
             case C -> precioFinal += 60;
@@ -36,13 +37,13 @@ public abstract class Electrodomestico {
             case F -> precioFinal += 10;
         }
 
-        if (peso>= 80){
+        if (peso >= 80) {
             precioFinal += 100;
-        } else if (peso>=50 && peso<= 79) {
+        } else if (peso >= 50 && peso <= 79) {
             precioFinal += 80;
-        } else if (peso>=20 && peso<= 49) {
+        } else if (peso >= 20 && peso <= 49) {
             precioFinal += 50;
-        } else if (peso>=0 && peso<= 19) {
+        } else if (peso >= 0 && peso <= 19) {
             precioFinal += 10;
         }
 
@@ -53,16 +54,16 @@ public abstract class Electrodomestico {
     protected Colores comprobarColor(String color) {
         color = color.toLowerCase();
         switch (color) {
-            case "black","negro"-> {
+            case "black", "negro" -> {
                 return Colores.NEGRO;
             }
-            case "red","rojo"-> {
+            case "red", "rojo" -> {
                 return Colores.ROJO;
             }
-            case "blue","azul"-> {
+            case "blue", "azul" -> {
                 return Colores.AZUL;
             }
-            case "grey","gris"-> {
+            case "grey", "gris" -> {
                 return Colores.GRIS;
             }
             default -> {
@@ -72,14 +73,13 @@ public abstract class Electrodomestico {
     }
 
     /**
-     *
      * @param consumo char de la entrada a comprobar
      * @return Devuelve el valor dentro de un enumerado.
      * Si el valor ingresado no se encuentra en el rango de la A a la F el valor por defecto es la F
      */
-    protected Consumo comprobarConsumoEnergetico(char consumo){
+    protected Consumo comprobarConsumoEnergetico(char consumo) {
         consumo = Character.toLowerCase(consumo);
-        switch (consumo){
+        switch (consumo) {
             case 'a' -> {
                 return Consumo.A;
             }

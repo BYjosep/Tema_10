@@ -2,7 +2,7 @@ package com.BYjosep04.ejercicio6;
 
 import java.util.Objects;
 
-public abstract class Multimedia  {
+public abstract class Multimedia {
     private String titulo;
     private String autor;
     private TipoMultimedia tipo;
@@ -26,16 +26,16 @@ public abstract class Multimedia  {
         return titulo;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getAutor() {
         return autor;
     }
 
-    public TipoMultimedia getTipo() {
-        return tipo;
-    }
-
-    public int getYear() {
-        return year;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
 
@@ -43,16 +43,16 @@ public abstract class Multimedia  {
         SETERS
      */
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public TipoMultimedia getTipo() {
+        return tipo;
     }
 
     public void setTipo(TipoMultimedia tipo) {
         this.tipo = tipo;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public void setYear(int year) {
@@ -63,7 +63,7 @@ public abstract class Multimedia  {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Multimedia that = (Multimedia) o;
-        return  Objects.equals(titulo, that.titulo) && Objects.equals(autor, that.autor);
+        return Objects.equals(titulo, that.titulo) && Objects.equals(autor, that.autor);
     }
 
     @Override
@@ -84,9 +84,9 @@ public abstract class Multimedia  {
     public String toStringForBucle() {
         return
                 "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", tipo=" + tipo +
-                ", year=" + year +
-                '}';
+                        ", autor='" + autor + '\'' +
+                        ", tipo=" + tipo +
+                        ", year=" + year +
+                        '}';
     }
 }

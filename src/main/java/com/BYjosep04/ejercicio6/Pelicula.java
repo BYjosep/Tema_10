@@ -1,11 +1,9 @@
 package com.BYjosep04.ejercicio6;
 
-import java.util.Comparator;
-
 public class Pelicula extends Multimedia implements Comparable<Pelicula> {
     private int duracion;
-    private  String actorPrincipal;
-    private  String actrizPrincipal;
+    private String actorPrincipal;
+    private String actrizPrincipal;
 
     public Pelicula(String titulo, String autor, int year, TipoMultimedia tipo, int duracion, String actorPrincipal, String actrizPrincipal) {
         super(titulo, autor, year, tipo);
@@ -23,12 +21,12 @@ public class Pelicula extends Multimedia implements Comparable<Pelicula> {
         return duracion;
     }
 
-    public String getActorPrincipal() {
-        return actorPrincipal;
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
     }
 
-    public String getActrizPrincipal() {
-        return actrizPrincipal;
+    public String getActorPrincipal() {
+        return actorPrincipal;
     }
 
     /*
@@ -39,8 +37,8 @@ public class Pelicula extends Multimedia implements Comparable<Pelicula> {
         this.actorPrincipal = actorPrincipal;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public String getActrizPrincipal() {
+        return actrizPrincipal;
     }
 
     public void setActrizPrincipal(String actrizPrincipal) {
@@ -49,30 +47,28 @@ public class Pelicula extends Multimedia implements Comparable<Pelicula> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Pelicula{\n");
-        sb.append("\tTitulo: ").append(getTitulo()).append(",\n");
-        sb.append("\tAutor: ").append(getAutor()).append(",\n");
-        sb.append("\tYear: ").append(getYear()).append(",\n");
-        sb.append("\tTipo: ").append(getTipo()).append(",\n");
-        sb.append("\tDuracion: ").append(getDuracion()).append(",\n");
-        sb.append("\tActorPrincipal: ").append(getActorPrincipal()).append(",\n");
-        sb.append("\tActrizPrincipal: ").append(getActrizPrincipal()).append(",\n");
-        sb.append("\n}");
-        return sb.toString();
+        String sb = "Pelicula{\n" +
+                "\tTitulo: " + getTitulo() + ",\n" +
+                "\tAutor: " + getAutor() + ",\n" +
+                "\tYear: " + getYear() + ",\n" +
+                "\tTipo: " + getTipo() + ",\n" +
+                "\tDuracion: " + getDuracion() + ",\n" +
+                "\tActorPrincipal: " + getActorPrincipal() + ",\n" +
+                "\tActrizPrincipal: " + getActrizPrincipal() + ",\n" +
+                "\n}";
+        return sb;
     }
 
     @Override
     public String toStringForBucle() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\tTitulo: ").append(getTitulo()).append(",\n");
-        sb.append("\tAutor: ").append(getAutor()).append(",\n");
-        sb.append("\tYear: ").append(getYear()).append(",\n");
-        sb.append("\tTipo: ").append(getTipo()).append(",\n");
-        sb.append("\tDuracion: ").append(getDuracion()).append(",\n");
-        sb.append("\tActorPrincipal: ").append(getActorPrincipal()).append(",\n");
-        sb.append("\tActrizPrincipal: ").append(getActrizPrincipal()).append(",\n");
-        return sb.toString();
+        String sb = "\tTitulo: " + getTitulo() + ",\n" +
+                "\tAutor: " + getAutor() + ",\n" +
+                "\tYear: " + getYear() + ",\n" +
+                "\tTipo: " + getTipo() + ",\n" +
+                "\tDuracion: " + getDuracion() + ",\n" +
+                "\tActorPrincipal: " + getActorPrincipal() + ",\n" +
+                "\tActrizPrincipal: " + getActrizPrincipal() + ",\n";
+        return sb;
     }
 
 

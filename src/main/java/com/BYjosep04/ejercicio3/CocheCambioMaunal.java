@@ -4,14 +4,15 @@ public class CocheCambioMaunal extends Coche {
     public CocheCambioMaunal(String matricula, int[] marchasVecidadMaxima) {
         super(matricula, marchasVecidadMaxima);
     }
+
     @Override
     protected void cambiarMarcha(int marcha) {
-        if (marcha < 0){
+        if (marcha < 0) {
             throw new IllegalArgumentException("No se pueden usar marchas negativas.");
         }
-        if (marcha == 0 && super.getVelocidadActual()==0){
+        if (marcha == 0 && super.getVelocidadActual() == 0) {
             super.setMarchaActual(marcha);
-        }else {
+        } else {
             super.frenar(getVelocidadActual());
             super.setMarchaActual(marcha);
         }

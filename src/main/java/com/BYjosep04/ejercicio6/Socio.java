@@ -7,9 +7,9 @@ import java.util.Objects;
 
 public class Socio {
     private final String nif;
-    private String nombre;
     private final LocalDate fechaNacimiento;
-    private String Poblacion;
+    private final String nombre;
+    private final String Poblacion;
 
 
     public Socio(String nif, String nombre, LocalDate fechaNacimiento, String Poblacion) {

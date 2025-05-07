@@ -16,12 +16,13 @@ public class Punto {
     public double getX() {
         return x;
     }
-    public double getY() {
-        return y;
-    }
 
     public void setX(double x) {
         this.x = x;
+    }
+
+    public double getY() {
+        return y;
     }
 
     public void setY(double y) {
@@ -30,18 +31,16 @@ public class Punto {
 
     public double distancia(Punto punto) {
         double numero;
-        double restaX,restaY;
+        double restaX, restaY;
         restaX = punto.getX() - x;
         restaY = punto.getY() - y;
-        numero = (restaX*restaX)+(restaY*restaY);
+        numero = (restaX * restaX) + (restaY * restaY);
         return Math.sqrt(numero);
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Punto (x,y): ").append("(").append(x).append(", ").append(y).append(")");
-    return sb.toString();
+        return "Punto (x,y): " + "(" + x + ", " + y + ")";
     }
 }
 
