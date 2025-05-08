@@ -53,6 +53,9 @@ public class Estadio {
         eventos.add(evento);
     }
 
+    public int cuantosEventos(){
+        return eventos.size();
+    }
 
     public boolean eliminarEvento(int id) {
         if (id <=0) {

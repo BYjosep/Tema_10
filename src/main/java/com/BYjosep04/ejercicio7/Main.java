@@ -30,8 +30,9 @@ public class Main {
                 estadio.agregarEvento(new Evento(scann.scanText(), LibDate.IngresarFecha()));
             }
             case 3->{
-                LibInInts.ingresarUnNumero("Ingrese un numero del evento \n"+estadio.getEventos()+"\n",);
-                estadio.eliminarEvento();
+
+                estadio.eliminarEvento(LibInInts.ingresarUnNumero("Ingrese un numero del evento \n"+estadio.getEventos()+"\n",0,estadio.cuantosEventos(),
+                        "El evento seleccionado no existe"));
             }
             case 0->{
                 scann.cerrar();
