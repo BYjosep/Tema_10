@@ -67,7 +67,7 @@ public abstract class Zona {
         return precioBase;
     }
 
-    protected IAsiento[][] getAsientos() {
+    public IAsiento[][] getAsientos() {
         return asientos;
     }
 
