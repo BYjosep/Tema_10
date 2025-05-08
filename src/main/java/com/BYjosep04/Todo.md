@@ -18,12 +18,10 @@ zona->normal
 
 zona->Vip
 
-```
 
->[X]
-> ```
+
 > Afluiencia: BAJA, ALTA, MEDIA
-> ```
+
 
 > ```
 > Entrada  -> (tipo Entrada), numero de entrada, evento, zona, fila,asiento
@@ -31,17 +29,23 @@ zona->Vip
 >Entrada normal -> zona normal -> 1..n
 >
 > Entrada vip -> zona Vip 
-```
-
-Entrada vip <---> zona vip
-Entrada Normal <---> zona normal
+> ```
 
 
-Entrada Normal --> Entrada+ numero sorteo (entre 1 y numero de asientos)
-
-Entrada Vip --> Entrada+ numero casillero
 
 
-entrada vendida---> marcar asiento como ocupado
+> ```
+> Entrada vip <---> zona vip
+> Entrada Normal <---> zona normal
+> 
+> 
+> Entrada Normal --> Entrada+ numero sorteo (entre 1 y numero de asientos)
+> 
+> Entrada Vip --> Entrada+ numero casillero
+> 
+> 
+> entrada vendida---> marcar asiento como ocupado
+> 
+> si asiento ocupado --> no se puede seleccionar
+> ```
 
-si asiento ocupado --> no se puede seleccionar

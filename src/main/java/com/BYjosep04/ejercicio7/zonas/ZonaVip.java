@@ -33,4 +33,8 @@ public class ZonaVip extends Zona {
         }
         return sb.toString();
     }
+
+    public Casillero[][] getCasilleros() {
+        return casillero;
+    }
 }
