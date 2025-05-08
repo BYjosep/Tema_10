@@ -14,4 +14,8 @@ public  interface IAsiento {
      */
     void ocuparAsiento();
 
+    /**
+     * Debe de liberarse el asiento
+     */
+    void liberarAsiento();
 }

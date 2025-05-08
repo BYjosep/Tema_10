@@ -17,4 +17,10 @@ public class Asiento implements IAsiento {
     public void ocuparAsiento() {
         ocupado = true;
     }
+
+    @Override
+    public void liberarAsiento() {
+        ocupado = false;
+    }
+
 }
