@@ -3,6 +3,8 @@ package com.BYjosep04.ejercicio7;
 import java.time.LocalDate;
 
 public class Evento {
+    private int count =0;
+    private final int id;
     private final String nombre;
     private final LocalDate fecha;
     private final String descripcion;
@@ -15,6 +17,7 @@ public class Evento {
      * @throws IllegalArgumentException Si el nombre es nulo o vacío, o si la fecha es nula.
      */
     public Evento(String nombre, LocalDate fecha, String descripcion) {
+        this.id = ++count;
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("El nombre del evento no puede ser nulo o vacío.");
         }
@@ -36,6 +39,10 @@ public class Evento {
         this(nombre, fecha, "Sin descripcion");
     }
 
+
+    public int getId() {
+        return id;
+    }
     /**
      * Obtiene el nombre del evento.
      * @return El nombre del evento.

@@ -53,6 +53,23 @@ public class Estadio {
         eventos.add(evento);
     }
 
+
+    public boolean eliminarEvento(int id) {
+        if (id <=0) {
+            throw new IllegalArgumentException("El ID del evento no puede ser menor a 1");
+
+        }
+        for (int i = 0; i < eventos.size(); i++) {
+            if (eventos.get(i).getId() == id) {
+                eventos.remove(i);
+                return true;
+            }
+
+        }
+        return false;
+
+    }
+
     /**
      * Vende una entrada para un evento específico.
      * @param evento El evento para el que se vende la entrada.
