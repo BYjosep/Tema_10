@@ -3,7 +3,7 @@ package com.BYjosep04.ejercicio7;
 import java.time.LocalDate;
 
 public class Evento {
-    private int count =0;
+    private static int count =0;
     private final int id;
     private final String nombre;
     private final LocalDate fecha;
