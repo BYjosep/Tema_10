@@ -53,6 +53,23 @@ public abstract class Zona {
     }
 
 
+    protected int getFilas() {
+        return filas;
+    }
+    protected int getColumn() {
+        return column;
+    }
+    protected int getNumeroZona() {
+        return numeroZona;
+    }
+
+    protected double getPrecioBase() {
+        return precioBase;
+    }
+
+    protected IAsiento[][] getAsientos() {
+        return asientos;
+    }
 
     @Override
     public String toString() {
