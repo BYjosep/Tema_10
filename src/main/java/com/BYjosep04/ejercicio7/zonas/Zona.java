@@ -1,5 +1,5 @@
 package com.BYjosep04.ejercicio7.zonas;
-
+import lib.ANSI;
 import com.BYjosep04.ejercicio7.interfaces.IAsiento;
 
 public abstract class Zona {
@@ -52,5 +52,30 @@ public abstract class Zona {
         return true;
     }
 
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        // Encabezado con información de la zona
+        sb.append(ANSI.format("Zona %d - Dimensiones: %d filas x %d columnas\n", true, ANSI.Color.CYAN, ANSI.Color.NONE, numeroZona, filas, column));
+
+        // Representación de la matriz de asientos
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < column; j++) {
+                if (asientos[i][j].isOcupado()) {
+                    // Asiento ocupado: mostrado en rojo
+                    sb.append(ANSI.format("[X]", true, ANSI.Color.RED, ANSI.Color.NONE));
+                } else {
+                    // Asiento libre: mostrado en verde
+                    sb.append(ANSI.format("[ ]", true, ANSI.Color.GREEN, ANSI.Color.NONE));
+                }
+            }
+            sb.append("\n"); // Nueva línea al final de cada fila
+        }
+
+        return sb.toString();
+    }
 
 }
